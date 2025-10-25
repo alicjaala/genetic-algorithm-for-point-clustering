@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(AlgorytmGenetycznyProjekt CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(AlgorytmGenetyczny 
+    src/main.cpp
+    
+    src/AlgorytmGenetyczny.cpp
+    src/GaussianGroupingEvaluatorFactory.cpp
+    src/GroupingChallenge.cpp
+    src/GroupingEvaluator.cpp
+    src/Optimizer.cpp
+    src/Osobnik.cpp
+    src/Point.cpp
+)
+
+target_include_directories(AlgorytmGenetyczny PUBLIC include)
