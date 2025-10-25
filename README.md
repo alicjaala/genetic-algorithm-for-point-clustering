@@ -2,13 +2,6 @@
 
 A C++ implementation of a classic Genetic Algorithm (GA) designed to solve the point clustering optimization problem.
 
-This project was developed as an assignment for the "Efficient Programming Techniques" (TEP) course at the Wrocław University of Science and Technology (PWr), as part of the "Integrated Development Program of the Wrocław University of Science and Technology" (ZPR PWr).
-
-## 🎯 Project Goal
-
-The primary objective of this assignment was to implement a genetic algorithm adhering to good Object-Oriented Programming (OOP) practices in C++.
-
-**Note:** For the academic evaluation, the emphasis was placed on code quality, software architecture, and the correct assignment of responsibilities to objects (OOP compliance), rather than the raw performance of the algorithm or the quality of the final solution.
 
 ## 🧩 The Optimization Problem
 
@@ -66,6 +59,4 @@ As per the assignment requirements, the implementation is centered around two pr
 * Tracks the best solution found throughout the algorithm's history.
 * Provides a method to retrieve the best solution after the run is complete.
 
-
-This project is designed to be integrated with the competition framework (which includes the `CGroupingEvaluator` class).
-
+This project is designed to be integrated with the provided framework (which includes the CGroupingEvaluator class).
