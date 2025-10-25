@@ -17,7 +17,7 @@ The algorithm operates based on the evolution of a population of potential solut
 
 A single solution (individual) is encoded as an array of $n$ integers, where $n$ is the number of points. The value at the $i$-th index of the array represents the group ID assigned to the $i$-th point.
 
-*Example for $n=4$ points and $k=3$ groups:* `[1, 3, 3, 2]`
+*Example for n=4 points and k=3 groups:* `[1, 3, 3, 2]`
 
 ### 2. Algorithm Flow
 
