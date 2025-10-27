@@ -25,13 +25,13 @@ A single solution (individual) is encoded as an array of $n$ integers, where $n$
 2.  **Evaluation**: The fitness value for each individual in the population is calculated using the provided `dEvaluate` method.
 3.  **Selection (Tournament)**: A new population is created. To select a parent, two individuals are randomly sampled from the current population, and the one with the better (lower) fitness is chosen. This process is repeated to select pairs of parents.
 4.  **Crossover (Single-Point)**:
-    * For each pair of parents, crossover occurs with a probability of `CrossProb`.
+    * For each pair of parents, crossover occurs with a probability of `praw_krzyzowania`.
     * A single crossover point (from 1 to $n-1$) is randomly selected.
     * Two "children" are produced by exchanging the genetic material (genotypes) of the parents at the crossover point.
     * If crossover does not occur (with probability $1 - CrossProb$), exact copies of the parents are passed to the new population.
 5.  **Mutation**:
     * Every individual in the newly created population undergoes mutation.
-    * Each individual gene (a point's group assignment) within the genotype is mutated with a probability of `MutProb`.
+    * Each individual gene (a point's group assignment) within the genotype is mutated with a probability of `praw_mutacji`.
     * A mutation consists of replacing the gene's current value with a new, randomly selected group ID.
 6.  **Termination Condition**: The algorithm returns to step 2 unless a stopping criterion is met (e.g., time limit exceeded, a set number of iterations completed, or a limit on evaluation function calls reached).
 
@@ -39,21 +39,21 @@ A single solution (individual) is encoded as an array of $n$ integers, where $n$
 
 As per the assignment requirements, the implementation is centered around two primary classes:
 
-### `CIndividual`
+### `Osobnik`
 
 * Represents a single individual (solution).
 * Stores the genotype (e.g., in `std::vector<int>`).
 * Stores its calculated fitness value.
 * Is responsible for the logic of operations on a single individual:
     * **Evaluation Method**: Calls the external evaluator to calculate and store its own fitness.
-    * **Mutation Method**: Mutates its own genotype based on `MutProb`.
-    * **Crossover Method**: Accepts another individual (`CIndividual& other`) and returns a pair of new individuals (`std::pair<CIndividual, CIndividual>`) resulting from the crossover operation.
+    * **Mutation Method**: Mutates its own genotype based on `praw_mutacji`.
+    * **Crossover Method**: Accepts another individual (`Osobnik& drugiOsobnik`) and returns a pair of new individuals (`std::pair<Osobnik, Osobnik>`) resulting from the crossover operation.
 
-### `CGeneticAlgorithm`
+### `CAlgorytmGenetyczny`
 
 * The main class that manages the algorithm's execution flow.
-* Stores the runtime parameters (`PopSize`, `CrossProb`, `MutProb`).
-* Manages the entire population of individuals (e.g., `std::vector<CIndividual>`).
+* Stores the runtime parameters (`rozmiar_populacji`, `praw_krzyzowania`, `praw_mutacji`).
+* Manages the entire population of individuals (e.g., `std::vector<Osobnik>`).
 * Is responsible for the main algorithm loop (evolution).
 * Implements the tournament selection logic.
 * Tracks the best solution found throughout the algorithm's history.
